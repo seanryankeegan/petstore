@@ -2,25 +2,21 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+orbs:
+  newman: postman/newman@0.0.2
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+  run-collection:
     docker:
+      # replace with your preferred image
       - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
-      - checkout
-      - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+      - newman/newman-run:
+          collection: https://devrel.postman.co/workspace/CircleCI-Practice-Workspace~003c4a7e-859b-4339-97e4-c02207085994/collection/14272639-db7a0eb9-02aa-4af3-94e0-f5b83f361d2e?apikey=PMAK-61683d1b5669aa0046011479-960ef5f1a6018fae39884e5cc4a86c1f9b
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
+  example-workflow:
     jobs:
-      - say-hello
+      - run-collection
