@@ -13,7 +13,7 @@ jobs:
     steps:
       - checkout
       - newman/newman-run:
-          collection: https://devrel.postman.co/workspace/CircleCI-Practice-Workspace~003c4a7e-859b-4339-97e4-c02207085994/collection/14272639-db7a0eb9-02aa-4af3-94e0-f5b83f361d2e?apikey=PMAK-61683d1b5669aa0046011479-960ef5f1a6018fae39884e5cc4a86c1f9b
+          collection: https://api.getpostman.com/collections/14272639-db7a0eb9-02aa-4af3-94e0-f5b83f361d2e?apikey=PMAK-61683d1b5669aa0046011479-960ef5f1a6018fae39884e5cc4a86c1f9b
 
 workflows:
   example-workflow:
